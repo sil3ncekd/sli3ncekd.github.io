@@ -1,0 +1,629 @@
+@font-face {
+    font-family: 'Metropolis';
+    src: url(fonts/Metropolis-ExtraBold.otf);
+}
+@font-face {
+    font-family: 'raleway';
+    src: url(fonts/Raleway.ttf);
+}
+@font-face {
+    font-family: 'peaceSans';
+    src: url(fonts/Peace-Sans.otf);
+}
+
+@font-face {
+    font-family: 'eastman';
+    src: url(fonts/EastmanRomanTrial-Black.otf);
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    /* overflow-x: hidden; */
+    scroll-behavior: smooth;
+    background-color: #FFEFD0;
+}
+
+
+/*NAVBAR*/
+.logomob{
+    display: none;
+}
+
+header .logopc{
+    position: absolute;
+    cursor: pointer;
+    width: 90px;
+    z-index: 101;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    border-radius: 50px;
+    background-color: #3b1d15;
+    transition: .3s;
+}
+
+header .logopc:hover{
+    background-color: #3b1d15;
+    padding-top: 40px;
+    border-radius: 0px 0 50px 50px;
+}
+
+header{
+    z-index: 200;
+    position: fixed;
+    background: #3b1d15; /*622f22*/
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logomob{
+    color: #ffefd0;
+    font-family: 'peacesans';
+    font-size: 25px;
+}
+
+header .navbar ul{
+    list-style: none;
+}
+
+header .navbar ul li{
+    position: relative;
+    display: inline-block;
+}
+
+header .navbar ul li a{
+    font-family: 'peacesans';
+    font-size: 15px;
+    padding: 15px 20px;
+    color: #ffe8bb;
+    display: block;
+}
+
+header .navbar ul li a:hover{
+    background-color: #622F22;
+    color: #f3f3f3;
+    border-radius: 5px;    
+}
+
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background-color: #F6E4D9;
+    display: none;
+}
+
+header .navbar ul li ul li{
+    width: 100%;
+}
+
+header .navbar ul li ul li a{
+    color: #3b1d15;
+}
+
+header .navbar ul li ul li a:hover{
+    border-radius: 0%;
+    background-color: #858E2A;
+}
+
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+    display: initial;
+}
+
+
+/*HAMBURGER*/
+.menu-container{
+    z-index: 201;
+    display: none;
+    margin-right: 10px;
+    height: 30px;
+    font-weight: 30px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.line{
+    position: absolute;
+    height: 5px;
+    width: 30px;
+    background-color: #ffe8bb;
+    transition: .4s ease;
+    border-radius: 5px;
+}
+
+.line::before{
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 30px;
+    background-color: #ffe8bb;
+    top: -8px;
+    transition: .4s ease;
+    border-radius: 5px;
+}
+
+.line::after{
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 30px;
+    background-color: #ffe8bb;
+    top: 8px;
+    transition: .4s ease;
+    border-radius: 5px;
+}
+
+#Toggle{
+    display: none;
+}
+
+#Toggle:checked + label #active{
+    transform: rotate(45deg);
+}
+
+#Toggle:checked + label #active::before{
+    transform: rotate(-90deg) translateX(-8px);
+}
+
+#Toggle:checked + label #active::after{
+    display: none;
+}
+
+
+/* TITLE */
+.top-spacer{
+    width: 100%;
+    height: 125px;
+    /* background-color: #3a3a3a; */
+}
+
+.spacer{
+    width: 100%;
+    height: 75px;
+    /* background-color: #3a3a3a; */
+}
+
+.title{
+    padding: 0 10px;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.title p{
+    position: relative;
+    font-family: 'peacesans';
+    font-size: 60px;
+    color: #ffefd0;
+    text-align: center;
+    background-color: #3b1d15;
+    border-radius: 20px;
+}
+
+.description p{
+    max-width: 768px;
+    margin: 0 auto;
+    text-align: justify;
+    position: relative;
+    font-family: 'raleway';
+    font-size: 20px;
+    color: #622F22;
+    text-align: center;
+    padding: 10px 10px 40px 10px;
+}
+
+
+
+/* GALLERY OF IMAGES */
+.container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.container .card{
+    position: relative;
+    width: 420px;
+    height: 420px;
+    margin: 15px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.container .card .imgBx,
+.container .card .contentBx{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container .card .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .card .contentBx::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F6E4D9;
+    opacity: 90%;
+    transform: scaleX(0);
+    transition: transform 0.5s ease-in-out;
+    transform-origin: right;
+}
+
+.container .card:hover .contentBx::before{
+    transform: scaleX(1);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: left;
+}
+
+.container .card .contentBx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .card .contentBx .content{
+    position: relative;
+    padding: 30px;
+    z-index: 1;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-500px);
+    transition-delay: 0s;
+}
+
+.container .card:hover .contentBx .content{
+    transform: translateX(0px);
+}
+
+/* CARD HOVERS */
+.container .card .contentBx .content h2{
+    font-size: 50px;
+    font-family: 'peacesans';
+}
+
+.container .card .contentBx .content p{
+    display: block;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 100px;
+    font-family: 'raleway';
+}
+
+.container .card .contentBx .content .button{
+    font-family: 'peacesans';
+    color: #184233;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid #184233;
+    transition: 0.2s ease;
+}
+
+.container .card .contentBx .content .button:hover{
+    border: 1px solid #184233;
+    background-color: #184233;
+    color: #E5A01D;
+}
+
+
+
+/* END CARD HOVERS */
+
+
+.container .card:hover .contentBx .content h2{
+    color: #1D212E;
+    font-size: 50px;
+    font-family: 'peacesans';
+}
+
+.container .card:hover .contentBx .content p{
+    color: #511900;
+    display: block;
+    font-size: 20px;
+    padding-top: 10px;
+    font-family: 'raleway';
+}
+
+
+
+
+/* ORDER NOW BUTTON/DELIVERY PROCESS BUTTON */
+.sticky-button{
+    position: sticky;
+    text-align: end;
+    margin: 50px auto;
+    bottom: 50px;
+    z-index: 1;
+    max-width: 1440px;
+}
+
+.sticky-button a{
+    align-items: center;
+    color: #F6E4D9;
+    background-color: #3b1d15;
+    border-radius: 5px;
+    font-family: 'peacesans';
+    font-size: 15px;
+    padding: 15px 25px;
+    transition: all 0.2s ease;
+}
+
+.sticky-button a:hover{
+    background-color: #F6E4D9;
+    color: #1D212E;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*FOOTER*/
+.footer{
+    margin-top: 10em;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-bottom: 50px;
+    border-top: 2px solid #afafaf;
+}
+
+.footer h2{
+    font-family: 'peacesans';
+    color: #3b1d15;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.footer .socials{
+    text-align: center;
+}
+
+.footer .socials a{
+    color: #1D212E;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.footer .socials a:hover{
+    color: #184233;
+}
+
+.footer .offers{
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer .offers a{
+    font-family: 'raleway';
+    font-size: 16px;
+    color: #1D212E;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0 15px;
+    transition: all 0.2s ease;
+}
+
+.footer .offers a:hover{
+    color: #184233;
+    font-family: 'peacesans';
+}
+
+.footer p{
+    font-family: 'eastman';
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.footer .copyright{
+    color: #622F22;
+}
+
+.footer .copyright-year{
+    font-family: 'peacesans';
+}
+
+.footer .titlename a{
+    color: #622F22;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.footer .titlename a:hover{
+    color: #E5A01D;
+}
+/* ARROW UP BUTTON */
+.arrowUp{
+    text-align: center;
+    align-items: center;
+    margin: 30px auto;
+}
+
+.arrowUp a{
+    padding: 20px 22px;
+    background-color: #3b1d15;
+    color: #F6E4D9;
+    border-radius: 50px;
+    transition: 0.2s ease;
+}
+
+.arrowUp a:hover{
+    background-color: #1D212E;
+    color: #E5A01D;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 991px){
+    .hero-description .banner{
+        object-fit: cover;
+        position: right;
+    }
+
+    header{
+        padding: 20px;
+    }
+
+    header .logomob{
+        position: absolute;
+    }
+
+    header label{
+        display: initial;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #FACE75;
+        display: none;
+    }
+
+    header .navbar ul li{
+        width: 100%;
+    }
+
+    header .navbar ul li a{
+        color: #511900;
+        
+    }
+
+    header .navbar ul li a:hover{
+        background-color: #858E2A;
+        color: #511900;
+        border-radius: 0px;    
+    }
+
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+    }
+
+    header .navbar ul li ul li{
+        background-color: #F6E4D9;
+    }
+
+    header .navbar ul li ul li a:hover{
+        border-radius: 0%;
+        background-color: #858E2A;
+    }
+
+    #Toggle:checked ~ .navbar{
+        display: initial;
+
+    }
+
+    .menu-container{
+        display: flex;
+    }
+
+    .logopc{
+        display: none;
+    }
+
+    .logomob{
+        display: initial;
+    }
+
+
+    .orderbtn button{
+        display: none;
+    }
+
+}
+
+
+
+
+@media(max-width: 768px){
+    .title p{
+        font-size: 38px;
+        border-radius: 10px;
+    }
+
+    /* ORDER NOW BUTTON */
+    .sticky-button{
+        position: relative;
+        text-align: center;
+        padding: 50px;
+        z-index: 1;
+    }
+    
+}
+
+
+
+
+
+@media(max-width: 500px){
+    .hero p{
+        font-size: 14px;
+    }
+
+    .footer .footer-divider{
+        display: none;
+    }
+
+    .footer .offers a{
+        padding: 5px 20px;
+    }
+}

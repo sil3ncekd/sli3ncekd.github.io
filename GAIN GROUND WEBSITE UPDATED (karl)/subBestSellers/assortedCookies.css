@@ -1,0 +1,766 @@
+@font-face {
+    font-family: 'Metropolis';
+    src: url(../fonts/Metropolis-ExtraBold.otf);
+}
+@font-face {
+    font-family: 'raleway';
+    src: url(../fonts/Raleway.ttf);
+}
+@font-face {
+    font-family: 'peaceSans';
+    src: url(../fonts/Peace-Sans.otf);
+}
+
+@font-face {
+    font-family: 'eastman';
+    src: url(../fonts/EastmanRomanTrial-Black.otf);
+}
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    /* overflow-x: hidden; */
+    scroll-behavior: smooth;
+    background-color: #FFEFD0;
+}
+
+
+/*TEXT LOGO*/
+
+
+/*NAVBAR*/
+.logomob{
+    display: none;
+}
+
+header .logopc{
+    position: absolute;
+    cursor: pointer;
+    width: 90px;
+    z-index: 101;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    border-radius: 50px;
+    background-color: #3b1d15;
+    transition: .3s;
+}
+
+header .logopc:hover{
+    background-color: #3b1d15;
+    padding-top: 40px;
+    border-radius: 0px 0 50px 50px;
+}
+
+header{
+    z-index: 200;
+    position: fixed;
+    background: #3b1d15; /*622f22*/
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logomob{
+    color: #ffefd0;
+    font-family: 'peacesans';
+    font-size: 25px;
+}
+
+header .navbar ul{
+    list-style: none;
+}
+
+header .navbar ul li{
+    position: relative;
+    display: inline-block;
+}
+
+header .navbar ul li a{
+    font-family: 'peacesans';
+    font-size: 15px;
+    padding: 15px 20px;
+    color: #ffe8bb;
+    display: block;
+}
+
+header .navbar ul li a:hover{
+    background-color: #622F22;
+    color: #f3f3f3;
+    border-radius: 5px;    
+}
+
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background-color: #F6E4D9;
+    display: none;
+}
+
+header .navbar ul li ul li{
+    width: 100%;
+}
+
+header .navbar ul li ul li a{
+    color: #3b1d15;
+}
+
+header .navbar ul li ul li a:hover{
+    border-radius: 0%;
+    background-color: #858E2A;
+}
+
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+    display: initial;
+}
+
+
+/*HAMBURGER*/
+.menu-container{
+    z-index: 201;
+    display: none;
+    margin-right: 10px;
+    height: 30px;
+    font-weight: 30px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.line{
+    position: absolute;
+    height: 5px;
+    width: 30px;
+    background-color: #ffe8bb;
+    transition: .4s ease;
+    border-radius: 5px;
+}
+
+.line::before{
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 30px;
+    background-color: #ffe8bb;
+    top: -8px;
+    transition: .4s ease;
+    border-radius: 5px;
+}
+
+.line::after{
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 30px;
+    background-color: #ffe8bb;
+    top: 8px;
+    transition: .4s ease;
+    border-radius: 5px;
+}
+
+#Toggle{
+    display: none;
+}
+
+#Toggle:checked + label #active{
+    transform: rotate(45deg);
+}
+
+#Toggle:checked + label #active::before{
+    transform: rotate(-90deg) translateX(-8px);
+}
+
+#Toggle:checked + label #active::after{
+    display: none;
+}
+
+
+
+/* TITLE */
+.spacer{
+    width: 100%;
+    height: 125px;
+}
+
+.title p{
+    position: relative;
+    font-family: 'metropolis';
+    font-size: 60px;
+    color: #511900;
+    text-align: center;
+}
+
+
+
+
+/* MAIN CONTENT FOR FOOD */
+.container{
+    max-width: 1440px;
+    margin: auto;
+}
+
+.product{
+    display: flex;
+    background-color: #FCCF8B;
+}
+
+.product-container{
+    padding-top: 50px;
+}
+
+.product img{
+    max-width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.product-left, .product-right{
+    max-width: 50%;
+    width: 50%;
+}
+
+.product-description{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding: 100px;
+    margin: auto;
+    margin-top: 125px;
+    margin-bottom: 50px;
+}
+
+.product-description p{
+    font-family: 'metropolis';
+    font-size: 30px;
+    color: #277CE0;
+    padding-bottom: 70px;
+
+}
+
+
+/* ORDER NOW BUTTON */
+.product-description a{
+    position: relative;
+    text-decoration: none;
+    border: none;
+    list-style: none;
+    padding: 15px 30px;
+    color: #FCCF8B;
+    background-color: #277CE0;
+    border-radius: 5px;
+    border: 3px solid #277CE0;
+    font-family: 'metropolis';
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.product-description a:hover{
+    color: #277CE0;
+    background-color: #c55e44;
+    border: 3px solid #c55e44;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+
+
+
+
+/* MAIN CONTENT FOR FOOD 2 */
+.container2{
+    max-width: 1440px;
+    margin: auto;
+}
+
+.product-container2{
+    padding: 50px 0;
+}
+
+.product2{
+    display: flex;
+    background-color: #FCCF8B;
+}
+
+.product2 img{
+    max-width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.product-left2, .product-right2{
+    max-width: 50%;
+    width: 50%;
+}
+
+.product-description2{
+    width: 100%;
+    text-align: center;
+    padding: 50px;
+    margin: auto;
+    margin-top: 90px;
+}
+
+.product-description2 p{
+    color: #277CE0;
+    font-family: 'raleway';
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+
+/* BAR CONTENT */
+.barcontainer{
+    margin: 50px 10px;
+}
+
+.bars{
+    width: 100%;
+    padding: 0 10px;
+    max-width: 900px;
+}
+
+.barName{
+    color: #277CE0;
+    font-family: 'metropolis';
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    transition: 0.2s ease;
+}
+
+.ratings{
+    height: 30px;
+    background-color: #FCCF8B;
+    border-radius: 5rem;
+    border-style: solid;
+    border-width: 3px;
+    border-color:#277CE0;
+}
+
+.ratings1{
+    background-color: #277CE0 ;
+    height: 100%;
+    position: relative;
+    border-radius: 5rem;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #FCCF8B;
+    transition: 0.2s ease;
+}
+
+.barName:hover{
+    color: #c55e44;
+}
+.ratings1:hover{
+    background-color: #c55e44;
+}
+
+
+
+
+
+
+
+
+
+
+/* NEXT/BACK BUTTONS */
+.button-container{
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button-container .buttons{
+    display: flex;
+    align-items: center;
+    margin: 5px 10px;
+}
+
+.button-container .buttons .nextbtn{
+    background-color: #622F22;
+    color: #F6E4D9;
+    width: 250px;
+    height: 60px;
+    padding: 10px 20px;
+    border: 1px solid #ffe8bb;
+    transition: 0.2s ease;
+}
+
+.button-container .buttons .nextbtn:hover{
+    background-color: #232A6C;
+    color: #ffa600;
+    width: 250px;
+    height: 60px;
+    padding: 10px 20px;
+    border: 1px solid #511900;
+    transition: 0.2s ease;
+}
+
+.button-container .buttons .nextbtn h2{
+    font-family: 'raleway';
+    font-size: 15px;
+}
+
+.button-container .buttons .nextbtn p{
+    font-family: 'peacesans';
+    font-size: 18px;
+}
+
+/* MENULIST */
+.button-container .buttons .nextbtn1{
+    background-color: #3b1d15;
+    color: #F6E4D9;
+    width: 250px;
+    height: 60px;
+    padding: 10px 20px;
+    border: 1px solid #ffe8bb;
+    transition: 0.2s ease;
+}
+
+.button-container .buttons .nextbtn1:hover{
+    background-color: #1D212E;
+    color: #ffa600;
+    width: 250px;
+    height: 60px;
+    padding: 10px 20px;
+    border: 1px solid #391100;
+    transition: 0.2s ease;
+}
+
+.button-container .buttons .nextbtn1 h2{
+    text-align: center;
+    font-family: 'raleway';
+    font-size: 15px;
+}
+
+.button-container .buttons .nextbtn1 p{
+    text-align: center;
+    font-family: 'peacesans';
+    font-size: 18px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*FOOTER*/
+.footer{
+    margin-top: 10em;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-bottom: 50px;
+    border-top: 2px solid #afafaf;
+}
+
+.footer h2{
+    font-family: 'peacesans';
+    color: #3b1d15;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.footer .socials{
+    text-align: center;
+}
+
+.footer .socials a{
+    color: #1D212E;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.footer .socials a:hover{
+    color: #184233;
+}
+
+.footer .offers{
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer .offers a{
+    font-family: 'raleway';
+    font-size: 16px;
+    color: #1D212E;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0 15px;
+    transition: all 0.2s ease;
+}
+
+.footer .offers a:hover{
+    color: #184233;
+    font-family: 'peacesans';
+}
+
+.footer p{
+    font-family: 'eastman';
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.footer .copyright{
+    color: #622F22;
+}
+
+.footer .copyright-year{
+    font-family: 'peacesans';
+}
+
+.footer .titlename a{
+    color: #622F22;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.footer .titlename a:hover{
+    color: #E5A01D;
+}
+/* ARROW UP BUTTON */
+.arrowUp{
+    text-align: center;
+    align-items: center;
+    margin: 30px auto;
+}
+
+.arrowUp a{
+    padding: 20px 22px;
+    background-color: #184233;
+    color: #F6E4D9;
+    border-radius: 50px;
+    transition: 0.2s ease;
+}
+
+.arrowUp a:hover{
+    background-color: #1D212E;
+    color: #E5A01D;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 1440px){
+    /* MAIN CONTENT FOR FOOD 1 */
+    .product-description{
+        padding: 75px;
+        margin-top: 100px;
+    }
+
+    .product-description p{
+        font-size: 30px;
+    }
+
+    /* MAIN CONTENT FOR FOOD 2 */
+    .product-description2{
+        padding: 75px;
+        margin-top: 50px;
+    }
+
+    .product-description2 p{
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 1024px){
+    .product-description{
+        padding: 50px;
+        margin-top: 75px;
+    }
+
+    .product-description p{
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 991px){
+    .hero-description .banner{
+        object-fit: cover;
+        position: right;
+    }
+
+    header{
+        padding: 20px;
+    }
+
+    header .logomob{
+        position: absolute;
+    }
+
+    header label{
+        display: initial;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #FACE75;
+        display: none;
+    }
+
+    header .navbar ul li{
+        width: 100%;
+    }
+
+    header .navbar ul li a{
+        color: #511900;
+        
+    }
+
+    header .navbar ul li a:hover{
+        background-color: #858E2A;
+        color: #511900;
+        border-radius: 0px;    
+    }
+
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+    }
+
+    header .navbar ul li ul li{
+        background-color: #F6E4D9;
+    }
+
+    header .navbar ul li ul li a:hover{
+        border-radius: 0%;
+        background-color: #858E2A;
+    }
+
+    #Toggle:checked ~ .navbar{
+        display: initial;
+
+    }
+
+    .menu-container{
+        display: flex;
+    }
+
+    .logopc{
+        display: none;
+    }
+
+    .logomob{
+        display: initial;
+    }
+
+
+    .orderbtn button{
+        display: none;
+    }
+
+
+    /* MAIN CONTENT FOR FOOD 1 */
+    .product2{
+        flex-direction: column-reverse;
+    }
+
+    .product2 img{
+        object-fit: cover;
+    }
+
+    .product-left2, .product-right2{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .product-description2{
+        padding: 25px;
+    }
+
+    .product-description2 p{
+        font-size: 20px;
+    }
+}
+
+
+
+
+
+@media(max-width: 768px){
+    /* MAIN CONTENT FOR FOOD 2 */
+    .product{
+        flex-direction: column;
+    }
+
+    .product-left, .product-right{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .product-description{
+        margin-top: 0px;
+        padding: 0px;
+    }
+
+    .product-description p{
+        padding: 30px;
+        padding-bottom: 70px;
+    }
+
+}
+
+
+
+
+
+@media(max-width: 500px){
+    .hero p{
+        font-size: 14px;
+    }
+
+    .footer .footer-divider{
+        display: none;
+    }
+
+    .footer .offers a{
+        padding: 5px 20px;
+    }
+}
